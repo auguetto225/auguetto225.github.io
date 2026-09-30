@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Au Guetto 225</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<meta property="og:title" content="Au Guetto 225">
+<meta property="og:description" content="Tout ce dont vous avez besoin, au même endroit. Commandez en ligne, livraison à Abidjan.">
+<meta property="og:type" content="website">
+<style>
+.share{margin:0 0 12px}.shl{width:100%;margin-top:8px;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit;font-size:.85rem}.sr{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}#shmsg{display:block;color:var(--vert);font-weight:700;margin-top:6px}
+:root{--bg:#f6f4f1;--card:#fff;--ink:#20262e;--mute:#6b7280;--or:#f97316;--or2:#ea580c;--vert:#16a34a;--line:#e7e2dc;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181d;--card:#20262e;--ink:#f3f4f6;--mute:#9ca3af;--line:#343b45}}
+:root[data-theme="dark"]{--bg:#15181d;--card:#20262e;--ink:#f3f4f6;--mute:#9ca3af;--line:#343b45}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;padding:10px 0;border-bottom:3px solid;border-image:linear-gradient(90deg,var(--or) 66%,var(--vert) 66%) 1}
+.top{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;font-weight:900;font-size:1.6rem;letter-spacing:-.5px;line-height:1}
+.logo img{border-radius:10px}
+.logo i{font-style:normal;color:var(--or)}
+.logo small{color:var(--vert);font-size:.9rem;margin-left:4px}
+#cartbtn{position:relative;background:var(--or);color:#fff;border:0;border-radius:12px;padding:9px 14px;font:900 .95rem inherit;font-family:inherit;cursor:pointer}
+#cartbtn span{background:var(--ink);color:var(--bg);border-radius:10px;padding:0 7px;margin-left:6px;font-size:.8rem}
+#q{width:100%;margin-top:10px;padding:11px 14px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit}
+#q:focus{outline:none;border-color:var(--or)}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px}
+.cat{flex:none;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:7px 14px;font:700 .9rem inherit;font-family:inherit;cursor:pointer}
+.cat.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cat:focus-visible,button:focus-visible{outline:3px solid var(--vert);outline-offset:2px}
+.ban{margin:12px 0;padding:16px;border-radius:16px;background:var(--or);color:#fff}
+.ban b{font-size:1.15rem;display:block}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding-bottom:30px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(4,1fr)}}
+.p{background:var(--card);border-radius:14px;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+.pic{font-size:3.4rem;text-align:center;padding:18px 0;background:linear-gradient(135deg,#fff3e8,#e8f7ee)}
+.inf{padding:10px;display:flex;flex-direction:column;gap:4px;flex:1}
+.inf h3{margin:0;font-size:.92rem;font-weight:700}
+.old{color:var(--mute);text-decoration:line-through;font-size:.8rem}
+.pr{font-weight:900;color:var(--or2)}
+.tag{font-size:.75rem;color:var(--vert);font-weight:700}
+.add{margin-top:auto;background:var(--vert);color:#fff;border:0;border-radius:10px;padding:9px;font:700 .9rem inherit;font-family:inherit;cursor:pointer}
+#panel{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:10}
+#panel.on{display:block}
+.sheet{position:absolute;right:0;top:0;bottom:0;width:min(100%,400px);background:var(--bg);padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));overflow:auto;display:flex;flex-direction:column;gap:10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--card);border-radius:12px;padding:10px}
+.row button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:8px;width:28px;height:28px;cursor:pointer;font-size:1rem}
+.tot{font-weight:900;font-size:1.2rem;display:flex;justify-content:space-between}
+.sheet input{padding:11px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+.go{background:var(--or);color:#fff;border:0;border-radius:12px;padding:13px;font:900 1rem inherit;font-family:inherit;cursor:pointer}
+.close{align-self:flex-end;background:none;border:0;color:var(--ink);font-size:1.6rem;cursor:pointer}
+.ok{background:var(--vert);color:#fff;border-radius:12px;padding:14px;font-weight:700}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="top"><div class="logo"><img src="data:image/jpeg;base64,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" alt="" width="44" height="44">Au <i>Guetto</i><small>225</small></div>
+  <div style="display:flex;gap:8px"><button class="cat" id="accbtn" aria-label="Mon compte">👤 Compte</button><button id="cartbtn" aria-label="Ouvrir le panier">Panier<span id="n">0</span></button></div></div>
+  <input id="q" type="search" placeholder="Rechercher un produit" aria-label="Rechercher">
+</div></header>
+<main class="wrap">
+  <div class="cats" id="cats"></div>
+  <div class="ban"><b>Tout ce dont vous avez besoin, au même endroit</b>Livraison à Abidjan et paiement à la livraison.</div>
+  <div class="share"><b>Partage la boutique</b><div class="sr"><button class="cat" data-sh="native">📤 Partager</button><button class="cat" data-sh="cp">Copier le lien</button></div><input id="shl" class="shl" readonly aria-label="Lien de la boutique"><small id="shmsg" role="status"></small></div>
+  <div class="grid" id="grid"></div>
+</main>
+<div id="panel"><div class="sheet" id="sheet"></div></div>
+<script>
+const P=[
+ {n:'iPhone 18 Pro Max 256 Go',c:'Électronique',p:1115000,e:'📱'},
+ {n:'iPhone 18 Pro Max 512 Go',c:'Électronique',p:1279000,e:'📱'},
+ {n:'iPhone 18 Pro Max 1 To',c:'Électronique',p:1615000,e:'📱'},
+ {n:'iPhone 18 Pro Max 2 To',c:'Électronique',p:2115000,e:'📱'},
+ {n:'Smartphone 6,5" 128 Go',c:'Électronique',p:85000,o:105000,e:'📱'},
+ {n:'Écouteurs sans fil',c:'Électronique',p:9500,o:14000,e:'🎧'},
+ {n:'Chargeur rapide 33W',c:'Électronique',p:4500,e:'🔌'},
+ {n:'Tee-shirt coton homme',c:'Mode',p:5000,o:7500,e:'👕'},
+ {n:'Robe wax femme',c:'Mode',p:12000,e:'👗'},
+ {n:'Baskets confort',c:'Mode',p:15000,o:20000,e:'👟'},
+ {n:'Ventilateur sur pied',c:'Maison',p:18500,e:'🌀'},
+ {n:'Set de casseroles 5 pièces',c:'Maison',p:22000,o:28000,e:'🍳'},
+ {n:'Beurre de karité 250 ml',c:'Beauté',p:2500,e:'🧴'},
+ {n:'Parfum 50 ml',c:'Beauté',p:8000,o:11000,e:'🌸'},
+ {n:'Ballon de football',c:'Sport',p:6500,e:'⚽'},
+ {n:'Tenue de sport',c:'Sport',p:9000,e:'🏃'}
+];
+const C=['Tout',...new Set(P.map(x=>x.c))];
+let cat='Tout',q='',cart={};
+const f=n=>n.toLocaleString('fr-FR')+' FCFA';
+const $=i=>document.getElementById(i);
+function cats(){$('cats').innerHTML=C.map(c=>`<button class="cat ${c===cat?'on':''}" data-c="${c}">${c}</button>`).join('');}
+function grid(){
+ const l=P.map((x,i)=>({...x,i})).filter(x=>(cat==='Tout'||x.c===cat)&&x.n.toLowerCase().includes(q));
+ $('grid').innerHTML=l.length?l.map(x=>`<div class="p"><div class="pic" aria-hidden="true">${x.e}</div><div class="inf"><h3>${x.n}</h3>${x.o?`<span class="old">${f(x.o)}</span><span class="tag">-${Math.round(100-x.p/x.o*100)}%</span>`:''}<span class="pr">${f(x.p)}</span><button class="add" data-i="${x.i}">Ajouter au panier</button></div></div>`).join(''):'<p>Aucun produit trouvé. Essaie un autre mot.</p>';
+}
+const count=()=>Object.values(cart).reduce((a,b)=>a+b,0);
+const total=()=>Object.entries(cart).reduce((a,[i,k])=>a+P[i].p*k,0);
+const WA='2250585285278';
+let U={},H=[];
+try{U=JSON.parse(localStorage.getItem('agU')||'{}');H=JSON.parse(localStorage.getItem('agH')||'[]');}catch(e){}
+const sv=()=>{try{localStorage.setItem('agU',JSON.stringify(U));localStorage.setItem('agH',JSON.stringify(H));}catch(e){}};
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+function acct(msg){
+ $('sheet').innerHTML=`<button class="close" data-x="1" aria-label="Fermer">×</button><h2 style="margin:0">Mon compte</h2>${msg?`<div class="ok">${msg}</div>`:''}<input id="an" placeholder="Nom" autocomplete="name" value="${esc(U.n)}"><input id="ap" placeholder="Téléphone" inputmode="tel" autocomplete="tel" value="${esc(U.p)}"><input id="aq" placeholder="Commune / quartier" value="${esc(U.a)}"><button class="go" data-sv="1">Enregistrer</button>`+(H.length?`<h3 style="margin:8px 0 0">Mes commandes</h3>`+H.slice().reverse().map(o=>`<div class="row"><span>${esc(o.d)}<br><small>${esc(o.l)}</small></span><b>${f(o.t)}</b></div>`).join(''):'');
+ $('panel').classList.add('on');
+}
+function sheet(done,url){
+ const items=Object.entries(cart);
+ $('sheet').innerHTML=`<button class="close" data-x="1" aria-label="Fermer">×</button><h2 style="margin:0">Mon panier</h2>`+
+ (done?`<div class="ok">Ta commande est prête. Appuie sur le bouton pour l'envoyer sur WhatsApp : nous te confirmons la livraison.</div><a class="go" style="text-align:center;text-decoration:none" href="${url}" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>`:
+ items.length?items.map(([i,k])=>`<div class="row"><span>${P[i].e} ${P[i].n}<br><b>${f(P[i].p*k)}</b></span><span><button data-m="${i}" aria-label="Retirer">−</button> ${k} <button data-a="${i}" aria-label="Ajouter">+</button></span></div>`).join('')+
+ `<div class="tot"><span>Total</span><span>${f(total())}</span></div><input id="nm" placeholder="Nom" autocomplete="name" value="${esc(U.n)}"><input id="ph" placeholder="Téléphone" inputmode="tel" autocomplete="tel" value="${esc(U.p)}"><input id="ad" placeholder="Commune / quartier (ex : Cocody, Angré)" value="${esc(U.a)}"><button class="go" data-go="1">Commander (paiement à la livraison)</button>`
+ :'<p>Ton panier est vide. Ajoute un produit pour commencer.</p>');
+}
+const SITE=location.href.split('#')[0].split('?')[0];
+function share(k){
+ const t='Au Guetto 225 : commandez en ligne, livraison à Abidjan.',m=$('shmsg'),i=$('shl');
+ const copy=()=>{i.focus();i.select();i.setSelectionRange(0,999);
+  let ok=false;try{ok=document.execCommand('copy');}catch(e){}
+  if(ok){m.textContent='Lien copié !';return;}
+  try{navigator.clipboard.writeText(SITE).then(()=>{m.textContent='Lien copié !';},()=>{m.textContent='Appuie longuement sur le lien ci-dessus pour le copier.';});}
+  catch(e){m.textContent='Appuie longuement sur le lien ci-dessus pour le copier.';}};
+ if(k==='native'&&navigator.share){navigator.share({title:'Au Guetto 225',text:t,url:SITE}).catch(er=>{if(er&&er.name!=='AbortError')copy();});return;}
+ copy();
+}
+$('shl').value=SITE;
+document.addEventListener('click',e=>{
+ const t=e.target.closest('button,#panel');if(!t)return;const d=t.dataset||{};
+ if(d.c){cat=d.c;cats();grid();}
+ else if(d.i!==undefined){cart[d.i]=(cart[d.i]||0)+1;upd();}
+ else if(d.a){cart[d.a]++;upd();sheet();}
+ else if(d.m){if(--cart[d.m]<=0)delete cart[d.m];upd();sheet();}
+ else if(t.id==='cartbtn'){sheet();$('panel').classList.add('on');}
+ else if(d.x||t.id==='panel'){if(e.target.id==='panel'||d.x)$('panel').classList.remove('on');}
+ else if(d.sh){share(d.sh);}
+ else if(t.id==='accbtn'){acct();}
+ else if(d.sv){U={n:$('an').value.trim(),p:$('ap').value.trim(),a:$('aq').value.trim()};sv();acct('Compte enregistré.');}
+ else if(d.go){if(!$('nm').value.trim()||!$('ph').value.trim()||!$('ad').value.trim()){$('ph').placeholder='Remplis nom, téléphone et quartier';return;}const L=Object.entries(cart).map(([i,k])=>'- '+k+' x '+P[i].n+' : '+f(P[i].p*k)).join('\n');
+ const msg='Bonjour Au Guetto 225, je veux commander :\n'+L+'\n\nTotal : '+f(total())+'\nPaiement : à la livraison\n\nNom : '+$('nm').value.trim()+'\nTéléphone : '+$('ph').value.trim()+'\nQuartier : '+$('ad').value.trim();
+ const url='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+ U={n:$('nm').value.trim(),p:$('ph').value.trim(),a:$('ad').value.trim()};
+ H.push({d:new Date().toLocaleDateString('fr-FR'),l:Object.entries(cart).map(([i,k])=>k+' x '+P[i].n).join(', '),t:total()});sv();
+ cart={};upd();sheet(true,url);}
+});
+function upd(){$('n').textContent=count();}
+$('q').addEventListener('input',e=>{q=e.target.value.toLowerCase();grid();});
+cats();grid();
+(l=>{l.rel='icon';l.href=document.querySelector('.logo img').src;document.head.appendChild(l)})(document.createElement('link'));
+</script>
+</body>
+</html>
